@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Signup Form</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="sheet/style.css">
+
+		<link rel="icon" href="image/favicon-16x16.png">
+
+		<script type="text/javascript">
+			function valid() { 
+				var fname=document.f1.fname.value;
+				var lname=document.f1.lname.value;
+				var firstpassword=document.f1.p1.value;  
+				var secondpassword=document.f1.p2.value;
+				var mail=document.f1.email.value;
+				var atposition=mail.indexOf("@");  
+				var dotposition=mail.lastIndexOf("."); 
+
+				if (fname==null || fname=="") {  
+  					alert("First Name can't be blank!");  
+  					return false;  
+				}
+				else if(lname==null || lname=="") {
+					alert("Last Name can't be blank!");  
+  					return false;
+				}
+				else if(atposition<1 || dotposition<atposition+2 || dotposition+2>=mail.length) {
+					alert("Please enter a valid Email address!");  
+  					return false;  
+				}
+				else if(firstpassword.length<8) {  
+  					alert("Password must be at least 8 characters long!");  
+  					return false;  
+  				}  
+				else if(firstpassword==secondpassword) {  
+					return true;  
+				}  
+				else if(firstpassword!=secondpassword){  
+					alert("Password must match!");  
+					return false;  
+				}	
+			}  
+		</script>
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="background-color:#ff4c68;">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="image/pug.jpg" alt="">
+				</div>
+				<form action="Signup.html" name="f1" onsubmit="return valid()">
+					<h3>Signup Form</h3>
+					<div class="form-group">
+						<input type="text" name="fname" placeholder="First Name" class="form-control">
+						<input type="text" name="lname" placeholder="Last Name" class="form-control">
+					</div>
+					<div class="form-wrapper">
+						<input type="text" placeholder="Username" class="form-control">
+						<i class="zmdi zmdi-account"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="text" name="email" placeholder="Email Address" class="form-control">
+						<i class="zmdi zmdi-email"></i>
+					</div>
+					<div class="form-wrapper">
+						<select name="" id="" class="form-control">
+							<option value="" disabled selected>Plan</option>
+							<option value="male">Chihuahua</option>
+							<option value="femal">Labrador</option>
+							<option value="other">Mastiff</option>
+						</select>
+						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" name="p1" placeholder="Password" class="form-control">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" name="p2" placeholder="Confirm Password" class="form-control">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<input type="submit" formaction="index.html" value="Sign up" class="btn btn-lg btn-block btn-dark" >
+				</form>
+			</div>
+		</div>
+
+	</body>
+</html>
+
+  
